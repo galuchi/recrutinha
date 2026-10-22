@@ -1,0 +1,18 @@
+# Ambientes virtuais e dependências
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Repositórios dos candidatos clonados
+repos/*
+!repos/.gitkeep
+
+# Feedback dos candidatos
+feedback/*
+!feedback/.gitkeep
+
+# Arquivos de sistema e IDE
+.DS_Store
+.idea/
+.vscode/
