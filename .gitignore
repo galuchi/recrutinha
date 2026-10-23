@@ -9,7 +9,7 @@ repos/*
 !repos/.gitkeep
 
 # Feedback dos candidatos
-feedback/*
+feedbacks/*
 !feedback/.gitkeep
 
 # Arquivos de sistema e IDE
