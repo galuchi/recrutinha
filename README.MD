@@ -11,7 +11,7 @@ Ambiente padronizado para avaliação técnica, auditoria assistida por IA e con
 | **`.agent/skills/avaliar-repo/`** | Skill do assistente para auditoria técnica automatizada e análise de AI-Driven Development. |
 | **`criterios.md`** | Régua oficial com a fórmula, matriz de pesos, critérios qualitativos e política de IA. |
 | **`scripts/calcular_nota.py`** | Script CLI interativo para consolidação da nota final (Apresentação + Técnica). |
-| **`prompts/case_specs.md`** | Enunciado e requisitos do case vigente (*mutável a cada processo seletivo*). |
+| **`prompts/case_specs.md`** | Enunciado e especificações do case vigente (gerenciado pelo usuário a partir do descritivo, mutável a cada processo seletivo). |
 | **`prompts/reviewer_guidelines.md`** | Diretrizes de postura, calibragem técnica e avaliação de IA para nível de estágio. |
 | **`templates/feedback_template.md`** | Modelo Markdown preenchido pela skill ao gerar o parecer individual. |
 | **`repos/`** | Pasta local onde os repositórios dos candidatos devem ser clonados (*vazia no GitHub*). |
@@ -80,5 +80,5 @@ Documento de referência absoluto do processo seletivo:
   Ambas as pastas estão no `.gitignore` (mantendo apenas o `.gitkeep`) e permanecem vazias no GitHub. Elas são exclusivas do ambiente local de cada avaliador para armazenar temporariamente os candidatos sob sua responsabilidade.
 - **Padronização de Nomes:**
   Sempre renomeie a pasta clonada do candidato para o padrão `repos/<nome-candidato>` (sem espaços ou caracteres especiais). A skill usa esse identificador para localizar o projeto e gerar o respectivo `feedbacks/<nome-candidato>.md`.
-- **Mutabilidade das Specs do Case (`prompts/case_specs.md`):**
-  O arquivo `prompts/case_specs.md` deve ser editado a cada novo ciclo de processo seletivo com o enunciado e regras específicas do desafio vigente. O restante da estrutura (skill, critérios e calculador) se adapta ao novo tema mantendo a régua de avaliação consistente.
+- **Gerenciamento das Specs do Case (`prompts/case_specs.md`):**
+  Assim como `repos/` e `feedbacks/`, este arquivo é gerenciado pelo próprio usuário do repositório para refletir o case do processo seletivo vigente. A cada novo ciclo, gere as especificações a partir da descrição do case (você pode colar o enunciado ou solicitar a uma IA que estruture os requisitos e critérios técnicos a partir do descritivo do desafio). O restante da estrutura do toolkit se adapta automaticamente, mantendo a consistência da régua de avaliação.
