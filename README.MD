@@ -8,11 +8,11 @@ Ambiente padronizado para avaliação técnica, auditoria assistida por IA e con
 
 | Arquivo / Pasta | Descrição |
 | :--- | :--- |
-| **`.agent/skills/avaliar-repo/`** | Skill do assistente para auditoria técnica automatizada do código do candidato. |
-| **`criterios.md`** | Régua oficial com a fórmula, matriz de pesos e critérios qualitativos de avaliação. |
+| **`.agent/skills/avaliar-repo/`** | Skill do assistente para auditoria técnica automatizada e análise de AI-Driven Development. |
+| **`criterios.md`** | Régua oficial com a fórmula, matriz de pesos, critérios qualitativos e política de IA. |
 | **`scripts/calcular_nota.py`** | Script CLI interativo para consolidação da nota final (Apresentação + Técnica). |
 | **`prompts/case_specs.md`** | Enunciado e requisitos do case vigente (*mutável a cada processo seletivo*). |
-| **`prompts/reviewer_guidelines.md`** | Diretrizes de postura e calibragem do olhar técnico para nível de estágio. |
+| **`prompts/reviewer_guidelines.md`** | Diretrizes de postura, calibragem técnica e avaliação de IA para nível de estágio. |
 | **`templates/feedback_template.md`** | Modelo Markdown preenchido pela skill ao gerar o parecer individual. |
 | **`repos/`** | Pasta local onde os repositórios dos candidatos devem ser clonados (*vazia no GitHub*). |
 | **`feedbacks/`** | Pasta local onde os relatórios de feedback gerados são salvos (*vazia no GitHub*). |
@@ -31,7 +31,7 @@ Ambiente padronizado para avaliação técnica, auditoria assistida por IA e con
    ```text
    /avaliar-repo nome-candidato
    ```
-   A skill inspeciona o código, calcula a nota técnica e gera o relatório em `feedbacks/nome-candidato.md`.
+   A skill inspeciona o código, audita o uso de IA, calcula a nota técnica e gera o relatório em `feedbacks/nome-candidato.md`.
 3. **Revisar o parecer gerado:**
    Abra `feedbacks/nome-candidato.md` para conferir as evidências levantadas pela IA e ajustar o que for necessário.
    Lembre-se: a skill é um **auxílio** e não substitui o julgamento humano da banca. Na consolidação da nota final, ela representa apenas 20% do peso da avaliação técnica.
@@ -47,11 +47,15 @@ Ambiente padronizado para avaliação técnica, auditoria assistida por IA e con
 
 ### 1. Skill de Auditoria (`.agent/skills/avaliar-repo`)
 Automatiza a inspeção estática do repositório em `repos/<candidato>` sob a perspectiva de estágio:
-- **Pilares avaliados:**
+- **Pilares avaliados (Nota Base Ponderada):**
   - **Arquitetura, Git e Documentação (peso 0.2):** histórico de commits, clareza do README, modularização e nomenclatura.
   - **Frontend, UX e Design (peso 0.4):** gestão por exceção, escaneabilidade de dados, feedback visual (loadings/erros) e acabamento.
   - **Backend, Lógica e Resiliência (peso 0.4):** validação de payloads na borda, concorrência (conflitos de edição) e tratamento de erros.
-- **Saída:** gera automaticamente `feedbacks/<candidato>.md` estruturado com pontos fortes e pontos de atenção para guiar a entrevista técnica.
+- **Auditoria de AI-Driven Development (Uso Consciente de IA):**
+  - Identifica uso de IA declarado ou inferido no repositório.
+  - O uso de IA **não é punitivo**: avalia se o candidato agiu como piloto (com specs/PRD, workflows iterativos, guardrails e testes intencionais) ou como mero passageiro com *AI-Slop*.
+  - Aplica modulação de nota pós-cálculo: **0.0** (uso consciente, nota mantida), **-0.5 a -1.0** (uso parcialmente consciente com controle frouxo) ou **até -2.0** (uso descabido / AI-slop puro).
+- **Saída:** gera automaticamente `feedbacks/<candidato>.md` estruturado com quadro de notas completo, evidências técnicas e roteiro de sabatina para a banca.
 - **Filtro:** ignora ruídos como `node_modules`, `.venv`, pastas de build e lockfiles.
 
 ### 2. Script Calculador de Nota (`scripts/calcular_nota.py`)
@@ -64,7 +68,7 @@ CLI interativo em Python que guia o avaliador na consolidação das notas:
 
 ### 3. Matriz de Critérios (`criterios.md`)
 Documento de referência absoluto do processo seletivo:
-- Define detalhadamente o que esperar de cada nota em cada pilar.
+- Define detalhadamente o que esperar de cada nota em cada pilar e a política de AI-Driven Development.
 - Garante isonomia entre múltiplos avaliadores da banca.
 - Estabelece que o parecer da IA serve como insumo consultivo, mantendo a banca humana com autonomia total para ajustes (*override*).
 

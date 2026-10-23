@@ -12,6 +12,8 @@
 | **1. Arquitetura, Git e Documentação** | {{NOTA_ARQ}} | 0.2 | {{POND_ARQ}} |
 | **2. Frontend, UX e Design** | {{NOTA_FRONT}} | 0.4 | {{POND_FRONT}} |
 | **3. Backend, Lógica e Resiliência** | {{NOTA_BACK}} | 0.4 | {{POND_BACK}} |
+| **Subtotal (Nota Base Ponderada)** | — | — | **{{NOTA_BASE}} / 10.0** |
+| **Ajuste por AI-Driven Development** | {{CLASSIFICACAO_IA}} | — | **{{PENALIDADE_IA}} pts** |
 | **NOTA FINAL SUGERIDA PELA IA** | — | — | **{{NOTA_FINAL}} / 10.0** |
 
 ---
@@ -38,11 +40,27 @@
 - **Robustez e Validação de Entradas:** 
 - **Tratamento de Concorrência (Edição simultânea do mesmo incidente):** 
   - *Abordagem:* (Ex: Lock otimista, lock pessimista, sobrescrita cega/last-write-wins)
+  - *Evidências:* 
 - **Resiliência a Falhas (Erros de rede/banco e retentativas):** 
 
 ---
 
-## 4. Destaques e Parecer Final
+## 4. Auditoria de AI-Driven Development (Uso Consciente de IA)
+- **Detecção e Transparência:**
+  - *Status:* [ ] Não detectado | [ ] Declarado pelo candidato | [ ] Inferido por heurística técnica
+  - *Evidências:* 
+- **Governança e Rituais (Specs, Workflows e Guardrails):**
+  - *Evidências:* 
+- **Postura Técnica (Piloto vs. Passageiro & Controle de AI-Slop):**
+  - *Evidências:* 
+- **Classificação e Impacto:**
+  - *Classificação:* [ ] Não identificado (0.0) | [ ] Consciente e Direcionado (0.0) | [ ] Parcialmente Consciente (-0.5 a -1.0) | [ ] Descabido / AI-Slop (-1.1 a -2.0)
+  - *Penalidade aplicada:* {{PENALIDADE_IA}} pts
+  - *Justificativa do ajuste:* 
+
+---
+
+## 5. Destaques e Parecer Final
 - **Ponto mais forte da solução:** 
 - **Principal ponto cego ou risco técnico:** 
-- **Síntese para a entrevista com a banca:**
+- **Síntese e perguntas para a banca na entrevista técnica:**

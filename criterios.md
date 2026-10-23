@@ -180,4 +180,15 @@ A nota de Auditoria por IA (0,0 a 10,0) é gerada pela skill técnica do assiste
 
 **Função no processo:** Atua como um olhar analítico padronizado que busca evidências de higiene de código, varre arquivos em busca de segredos expostos (`.env`), checa a consistência de tipagem e confere se os critérios mandatórios descritos no case foram atendidos.
 
+**Composição da Nota da Skill:**
+1. **Nota Base Ponderada:** Calculada sobre a inspeção técnica dos três pilares fundamentais do repositório:
+   $$\text{Nota Base Ponderada} = (\text{Arquitetura} \times 0.2) + (\text{Frontend} \times 0.4) + (\text{Backend} \times 0.4)$$
+2. **Auditoria de AI-Driven Development (Uso Consciente de IA):**
+   O uso de ferramentas de IA (declarado ou inferido) **não é punitivo nem eliminatório**, desde que o candidato atue como engenheiro-piloto e demonstre influência e domínio sobre o resultado:
+   - **Uso Consciente e Direcionado (Penalidade: 0,0):** O candidato define specs/PRDs, opera em workflows estruturados, adota guardrails/regras, realiza testes intencionais e não gera *AI-Slop*. A nota base é mantida integralmente.
+   - **Uso Parcialmente Consciente / Desalinhado (Penalidade: -0,5 a -1,0):** Uso de IA com controle frouxo, carência de specs ou guardrails explícitos, postura mais passiva ou resíduos leves de código morto/AI-slop.
+   - **Uso Descabido / AI-Slop Puro (Penalidade: -1,1 a -2,0):** Terceirização total do pensamento crítico; ausência de controle sobre o código gerado; presença marcante de *AI-slop* (código inchado, alucinações, dependências desnecessárias ou perda de discernimento).
+3. **Nota Final Sugerida pela Skill:**
+   $$\text{Nota Final IA} = \max(0.0, \text{Nota Base Ponderada} - \text{Penalidade IA})$$
+
 **Direito a override:** O parecer técnico emitido pela IA é um insumo de apoio para os avaliadores humanos. A banca tem autonomia total para ajustar a nota no cálculo final caso constate particularidades ou soluções criativas não capturadas pelo modelo.
